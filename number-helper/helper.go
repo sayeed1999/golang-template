@@ -11,3 +11,17 @@ func CreateValueToIndexLookupHash(nums []int) map[int]int {
 	}
 	return hash
 }
+
+func CreateFrequencyMap(nums []int) map[int]int {
+	hash := make(map[int]int)
+
+	for i := 0; i < len(nums); i++ {
+		if _, found := hash[nums[i]]; !found {
+			hash[nums[i]] = 1
+		} else {
+			hash[nums[i]]++
+		}
+	}
+
+	return hash
+}
