@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	numberhelper "github.com/sayeed1999/golang-template/number-helper"
+	"github.com/sayeed1999/golang-template/stack"
 	stringhelper "github.com/sayeed1999/golang-template/string-helper"
 )
 
@@ -27,4 +28,12 @@ func main() {
 	nums = []int{1, 1, 2, 2, 1, 3}
 	hash = numberhelper.CreateFrequencyMap(nums)
 	fmt.Println(hash)
+
+	parenthesis := "({})"
+	isValid := stack.IsValidParenthesis(parenthesis)
+	fmt.Println(isValid)
+
+	parenthesis = "({])"
+	isValid = stack.IsValidParenthesis(parenthesis)
+	fmt.Println(isValid)
 }
