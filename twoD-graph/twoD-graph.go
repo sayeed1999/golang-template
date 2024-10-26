@@ -93,7 +93,7 @@ func (g *TwoDGraph) CountConnectedGraphs() int {
 	return count
 }
 
-// private
+// private - dfs traversal
 func (g *TwoDGraph) visit(pt Point) {
 	g.visited[pt] = true
 

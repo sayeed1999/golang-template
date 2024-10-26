@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	bidirectionalgraph "github.com/sayeed1999/golang-template/bidirectional-graph"
 	twodgraph "github.com/sayeed1999/golang-template/twoD-graph"
 )
 
@@ -42,9 +43,9 @@ func main() {
 	// index, found = slices.BinarySearch(sortedArray, 8)
 	// fmt.Println(index, found, "ignore the index its not constant for missing elements")
 
-	fmt.Println("\n\n====== Two D Graph using points (x,y) =======\n\n")
+	fmt.Println("\n====== Two D Graph using points (x,y) =======\n")
 
-	var input = [][]int{{1, 1, 0}, {1, 0, 1}, {0, 1, 0}}
+	var matrix = [][]int{{1, 1, 0}, {1, 0, 1}, {0, 1, 0}}
 	// 1 1 0
 	// 1 0 1
 	// 0 1 0
@@ -52,10 +53,18 @@ func main() {
 	// form adjacency list of points
 	// adjacent items vertically/horizontally are connected
 
-	graph := twodgraph.NewTwoDGraph()
+	graph2D := twodgraph.NewTwoDGraph()
 
-	graph.FormGraphFromMatrix(input)
+	graph2D.FormGraphFromMatrix(matrix)
 
-	count := graph.CountConnectedGraphs()
+	count := graph2D.CountConnectedGraphs()
 	fmt.Println(count)
+
+	fmt.Println("\n====== Single Dimensional Undirected/Bidirectional Graph =======\n")
+
+	input := [][]int{{2, 1}, {3, 1}}
+	graph := bidirectionalgraph.NewOneDGraph()
+	graph.PopulateEdgesFromMatrix(input)
+	isCircular := graph.IsCircular()
+	fmt.Printf("The single dimensional graph is circular: %v\n", isCircular)
 }
